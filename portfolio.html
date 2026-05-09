@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aryan Kotasthane | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f7fb;
+      color: #1e293b;
+      line-height: 1.7;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      padding: 80px 0;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .hero-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero h1 {
+      font-size: 3.4rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      color: #cbd5e1;
+      font-size: 1.05rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .contact-info a {
+      text-decoration: none;
+      color: #93c5fd;
+      transition: 0.3s ease;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover {
+      color: white;
+    }
+
+    nav {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      padding: 18px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 35px;
+      color: #0f172a;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 65%;
+      height: 4px;
+      background: #2563eb;
+      border-radius: 10px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+      transition: all 0.35s ease;
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.12));
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 0;
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.18);
+      border-color: rgba(37, 99, 235, 0.18);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-box h3 {
+      margin-bottom: 12px;
+      color: #1d4ed8;
+      font-size: 1.1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: #dbeafe;
+      color: #1d4ed8;
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .project-tech {
+      color: #2563eb;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .project-card ul {
+      padding-left: 20px;
+    }
+
+    .project-card li {
+      margin-bottom: 10px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+
+    .timeline-item .duration {
+      color: #2563eb;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .certification {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .certification h3 {
+      color: #0f172a;
+    }
+
+    .verify-btn {
+      text-decoration: none;
+      background: #2563eb;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 10px;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+
+    .verify-btn:hover {
+      background: #1d4ed8;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-left {
+        flex-direction: column;
+      }
+
+      .contact-info {
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .nav-container {
+        gap: 20px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container hero">
+      <div class="hero-left">
+
+        <div class="profile-image">
+          <img src="Images/Profile-pic.jpeg" alt="Aryan Kotasthane">
+        </div>
+
+        <div class="hero-content">
+          <h1>Aryan Kotasthane</h1>
+          <p>
+        Information Technology student with strong foundations in Data Structures,
+        Algorithms, Java, Cloud Computing, and Web Development. Passionate about
+        Software Engineering, Problem Solving, and Building Scalable Applications.
+      </p>
+
+      </p>
+
+          <div class="contact-info">
+        <span>📍 India</span>
+
+        <a href="mailto:aryankotasthane345@gmail.com">
+          📧 aryankotasthane345@gmail.com
+        </a>
+
+        <a href="https://www.linkedin.com/in/aryan-kotasthane-12970724a/" target="_blank">
+          💼 LinkedIn
+        </a>
+
+        <a href="https://leetcode.com/u/aryankotasthane09/" target="_blank">
+          🧩 LeetCode
+        </a>
+      </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container nav-container">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+    </div>
+  </nav>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="card">
+        <p>
+          I am a motivated Information Technology student currently pursuing my
+          B.Tech degree with a strong academic background and practical experience
+          in software development, cloud technologies, and full-stack web development.
+          I enjoy solving complex problems, developing scalable systems, and continuously
+          learning modern technologies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+
+      <div class="skills-grid">
+        <div class="card skill-box">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">C++</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">SQL</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+
+        <div class="card skill-box">
+          <h3>Frameworks & Tools</h3>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">AngularJS</span>
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Bootstrap</span>
+          </div>
+        </div>
+
+        <div class="card skill-box">
+          <h3>Cloud Computing</h3>
+          <div class="tags">
+            <span class="tag">AWS Cloud Practitioner</span>
+          </div>
+        </div>
+
+        <div class="card skill-box">
+          <h3>Core Subjects</h3>
+          <div class="tags">
+            <span class="tag">Data Structures</span>
+            <span class="tag">Algorithms</span>
+            <span class="tag">OOP</span>
+            <span class="tag">DBMS</span>
+            <span class="tag">Operating Systems</span>
+            <span class="tag">Computer Networks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-grid">
+
+        <div class="card project-card">
+          <h3>Time Table Generator</h3>
+          <div class="project-tech">Node.js • MySQL • HTML • CSS • JavaScript</div>
+
+          <ul>
+            <li>Developed an automated timetable generation system to efficiently schedule classes without teacher or subject conflicts.</li>
+            <li>Implemented modules for managing teachers, courses, classes, batches, and subjects using a MySQL database.</li>
+            <li>Designed scheduling logic to ensure optimal allocation of teachers and lecture timings while avoiding overlaps.</li>
+          </ul>
+        </div>
+
+        <div class="card project-card">
+          <h3>Student Attendance Management System</h3>
+          <div class="project-tech">HTML • CSS • Bootstrap • JavaScript • MySQL</div>
+
+          <ul>
+            <li>Built a web-based attendance management system to record and maintain daily student attendance.</li>
+            <li>Stored and managed attendance records securely using a MySQL relational database.</li>
+            <li>Designed a responsive user interface using Bootstrap for efficient attendance tracking and management.</li>
+          </ul>
+        </div>
+
+        <div class="card project-card">
+          <h3>Safe Reach - Emergency Assistance Android Application</h3>
+          <div class="project-tech">Android • Java</div>
+
+          <ul>
+            <li>Developed an Android application focused on user safety during emergency and unexpected situations.</li>
+            <li>Implemented emergency calling and SMS alert features to quickly contact saved emergency contacts.</li>
+            <li>Designed a call forwarding algorithm that automatically contacted the next emergency person if the previous contact did not respond.</li>
+            <li>Enhanced emergency response reliability by ensuring continuous communication during critical situations.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+
+      <div class="timeline">
+
+        <div class="card timeline-item">
+          <h3>G.H. Raisoni College of Engineering and Management, Pune</h3>
+          <span class="duration">2024 – 2027</span>
+          <p><strong>Bachelor of Technology (B.Tech) in Information Technology</strong></p>
+          <p>CGPA: 8.83</p>
+          <p>Pune, Maharashtra</p>
+        </div>
+
+        <div class="card timeline-item">
+          <h3>Sau. Sunderbai Manik Adsul Polytechnic, Ahilyanagar</h3>
+          <span class="duration">2021 – 2024</span>
+          <p><strong>Diploma in Computer Engineering</strong></p>
+          <p>Percentage: 88.23%</p>
+          <p>Ahilyanagar, Maharashtra</p>
+        </div>
+
+        <div class="card timeline-item">
+          <h3>Carmel Convent English Medium School, Ahilyanagar</h3>
+          <span class="duration">Completed in 2021</span>
+          <p><strong>Secondary School Education (1st – 10th Standard)</strong></p>
+          <p>Ahilyanagar, Maharashtra</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="container">
+      <h2 class="section-title">Certifications</h2>
+
+      <div class="card certification">
+        <div>
+          <h3>AWS Certified Cloud Practitioner</h3>
+          <p>Amazon Web Services (AWS) • 2026</p>
+        </div>
+
+        <a href="https://www.credly.com/badges/0471fa5a-1c46-49bb-a4e5-c927d4c46311/public_url" target="_blank" class="verify-btn">Verify Certificate</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Aryan Kotasthane. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
